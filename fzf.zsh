@@ -21,3 +21,7 @@ if [[ -a $FILE ]]; then
     source $FILE
 fi
 
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --hidden --files'
+  export FZF_DEFAULT_OPTS='-m'
+fi
