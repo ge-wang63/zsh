@@ -1,7 +1,3 @@
-# @author     Sebastian Tramp <mail@sebastian.tramp.name>
-# @license    http://opensource.org/licenses/gpl-license.php
-
-Due to many requests I share my zsh configuration compilation.
 Copy the repository to ~/.zsh and run 'make install' once
 (or link the ~/.config/zsh/zshrc manually to ~/.zshrc)
 
