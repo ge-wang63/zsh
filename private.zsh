@@ -1,3 +1,6 @@
+# >>> aliases start >>>
+alias filepath='readlink -f'
+# <<< aliases end <<<
 # >>> 自定义脚本 start >>>
 OWN_SCRIPT_BIN="/Users/wangge/Develop/Script/bin"
 PATH="$OWN_SCRIPT_BIN:$PATH"
@@ -18,9 +21,9 @@ fi
 # >>> java start >>>
 javahome() {
   unset JAVA_HOME
-  JAVA_HOME=$(/usr/libexec/java_home -v "$1");
-  PATH=$JAVA_HOME/bin:$PATH:.
-  CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
+  JAVA_HOME=$(/usr/libexec/java_home -v "$1")
+  PATH=$JAVA_HOME/bin:$PATH
+  CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar
   export JAVA_HOME
   export PATH
   export CLASSPATH
@@ -33,14 +36,8 @@ alias java17='javahome 17'
 java8
 # <<< java end <<<
 
-# oh-my-zsh plugin
-plugins=(
-  git
-  z
-  zsh-syntax-highlighting
-  vi-mode
-  zsh-autocomplete
-)
+# >>> zookeeper start >>>
+export ZOOKEEPER_HOME=/usr/local/software/zookeeper-3.7.1
+export PATH="$PATH:$ZOOKEEPER_HOME/bin"
+# >>> zookeeper end >>>
 
-# Private aliases
-alias flushzsh="source $HOME/.zshrc"

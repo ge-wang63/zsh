@@ -8,8 +8,8 @@ mkdir -p $ZSH_CACHE
 export ZSH="$HOME/.oh-my-zsh"
 
 # executable search path
-export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/sbin:$PATH
+#export PATH=/usr/local/sbin:$PATH
+#export PATH=$HOME/.local/bin:$PATH
+#export PATH=$HOME/.local/sbin:$PATH
 
 export DATE=$(date +%Y-%m-%d)
