@@ -23,19 +23,20 @@ alias rdf-predicates="awk '/^\s*[^#]/ { print \$2 }' | uniq"
 alias rdf-objects="awk '/^\s*[^#]/ { ORS=\"\"; for (i=3;i<=NF-1;i++) print \$i \" \"; print \"\n\" }' | uniq"
 alias rdf-datatypes="awk -F'\x5E' '/\"\^\^</ { print substr(\$3, 2, length(\$3)-4) }' | uniq"
 
-alias grep='grep -i --color=auto'
+alias grep='grep -n --color=auto'
 
 #alias sign='gpg --detach-sign --armor'
 
 ##### standard aliases (start with a space to be ignored in history)
 alias ls=' ls --color=auto --time-style=long-iso'
 
-
+alias rm='rm -i'
 alias p=' ps aux | grep'
 alias g='git'
 alias b='brew'
 alias ka="killall"
 alias c=" clear"
+alias h=' history'
 
 alias cd=' cd'
 alias ..=' cd ..; ls'
@@ -81,8 +82,8 @@ alias -s 5="man -l"
 alias -s 6="man -l"
 alias -s 7="man -l"
 alias -s epub="open"
-alias -s pdf="open -a Preview"
-alias -s PDF="open -a Preview"
+alias -s pdf="open -a '/Library/PDF Expert.app'"
+alias -s PDF="open -a '/Library/PDF Expert.app'"
 alias -s xoj="xournal"
 
 alias -s md=" open"
