@@ -6,7 +6,6 @@ alias d="docker"
 alias dc="docker-compose"
 
 alias vi="vim"
-alias vim="vim"
 alias aedit=" $EDITOR $ZSH_CONFIG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
 alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
@@ -28,7 +27,7 @@ alias grep='grep -n --color=auto'
 #alias sign='gpg --detach-sign --armor'
 
 ##### standard aliases (start with a space to be ignored in history)
-alias ls=' ls --color=auto --time-style=long-iso'
+#alias ls=' ls --color=auto'
 
 alias rm='rm -i'
 alias p=' ps aux | grep'
@@ -62,11 +61,6 @@ alias -g LA='2>&1 | less'
 alias -g M='| most'
 alias -g C='| wc -l'
 
-# http://www.commandlinefu.com/commands/view/7284/zsh-suffix-to-inform-you-about-long-command-ending
-# zsh suffix to inform you about long command ending make, Just add "R" (without quotes) suffix to it and you can do other things: 
-# zsh will inform you when you can see the results.
-#alias -g R=' &; jobs | tail -1 | read A0 A1 A2 cmd; echo "running $cmd"; fg "$cmd"; zenity --info --text "$cmd done"; unset A0 A1 A2 cmd'
-
 ##### suffix aliases (mostly mapped to open which runs the gnome/kde default app)
 
 alias -s Dockerfile="docker build - < "
@@ -74,16 +68,9 @@ alias -s Dockerfile="docker build - < "
 alias ocr='docker run --rm -v `pwd`:/home/docker jbarlow83/ocrmypdf --skip-text'
 alias -s tex='docker run -i -t --rm -v `pwd`:/data docker-registry.eccenca.com/eccenca-latex:v1.10.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf'
 
-alias -s 1="man -l"
-alias -s 2="man -l"
-alias -s 3="man -l"
-alias -s 4="man -l"
-alias -s 5="man -l"
-alias -s 6="man -l"
-alias -s 7="man -l"
-alias -s epub="open"
-alias -s pdf="open -a '/Library/PDF Expert.app'"
-alias -s PDF="open -a '/Library/PDF Expert.app'"
+alias -s epub=" open"
+alias -s pdf=" open"
+alias -s PDF=" open"
 alias -s xoj="xournal"
 
 alias -s md=" open"
@@ -112,19 +99,19 @@ alias -s wav=" open"
 alias -s mp3=" open"
 alias -s webm=" open"
 
-alias -s tif="open"
-alias -s tiff="open"
-alias -s png="open"
-alias -s jpg="open"
-alias -s jpeg="open"
-alias -s JPG="open"
-alias -s gif="open"
-alias -s svg="open"
-alias -s psd="open"
+alias -s tif=" open"
+alias -s tiff= "open"
+alias -s png=" open"
+alias -s jpg=" open"
+alias -s jpeg= "open"
+alias -s JPG=" open"
+alias -s gif=" open"
+alias -s svg=" open"
+alias -s psd=" open"
 
-alias -s com="open"
-alias -s de="open"
-alias -s org="open"
+alias -s com=" open"
+alias -s de=" open"
+alias -s org= "open"
 
 alias -s xml="xmllint --format"
 alias -s json="jsonlint"
@@ -139,28 +126,28 @@ alias -s ntriples="rapper -i ntriples --count"
 alias -s ntriple="rapper -i ntriples --count"
 alias -s trig="rapper -i trig --count"
 
-alias -s ods="open"
-alias -s xls="open"
-alias -s xlsx="open"
+alias -s ods=" open"
+alias -s xls=" open"
+alias -s xlsx= "open"
 alias -s csv="vd"
 
-alias -s pot="open"
-alias -s odt="open"
-alias -s doc="open"
-alias -s docx="open"
-alias -s rtf="open"
+alias -s pot=" open"
+alias -s odt=" open"
+alias -s doc=" open"
+alias -s docx=" open"
+alias -s rtf=" open"
 alias -s dot="dot -Tpng -O"
 
-alias -s ppt="open"
-alias -s pptx="open"
-alias -s odp="open"
+alias -s ppt=" open"
+alias -s pptx= "open"
+alias -s odp=" open"
 
 alias -s plist="plutil"
-alias -s log="open"
+alias -s log=" open"
 
-alias -s sla="open"
+alias -s sla=" open"
 
-alias -s exe="open"
+alias -s exe=" open"
 
 alias -s tjp="tj3"
 alias -s asc="gpg"
