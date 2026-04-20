@@ -2,11 +2,11 @@
 
 export EDITOR="vim"
 
-alias d="docker"
-alias dc="docker-compose"
 
 alias vi="vim"
+alias zedit=" $EDITOR $ZSH_CONFIG/zshrc; source $ZSH_CONFIG/zshrc"
 alias aedit=" $EDITOR $ZSH_CONFIG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
+alias eedit=" $EDITOR $ZSH_CONFIG/environment.zsh; source $ZSH_CONFIG/environment.zsh"
 alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 alias viedit=" $EDITOR $HOME/.vim/vimrc"
@@ -23,11 +23,10 @@ alias rdf-objects="awk '/^\s*[^#]/ { ORS=\"\"; for (i=3;i<=NF-1;i++) print \$i \
 alias rdf-datatypes="awk -F'\x5E' '/\"\^\^</ { print substr(\$3, 2, length(\$3)-4) }' | uniq"
 
 alias grep='grep -n --color=auto'
-
-#alias sign='gpg --detach-sign --armor'
+alias rg='rg -n --color=auto'
 
 ##### standard aliases (start with a space to be ignored in history)
-#alias ls=' ls --color=auto'
+alias ls=' ls --color=auto'
 
 alias rm='rm -i'
 alias p=' ps aux | grep'
@@ -61,95 +60,113 @@ alias -g LA='2>&1 | less'
 alias -g M='| most'
 alias -g C='| wc -l'
 
+alias filepath='readlink -f'
+alias ip_simple="ifconfig en0 | grep 'inet ' | sed 's/^.*inet //g' | sed 's/ netmask.*$//g'"
+
 ##### suffix aliases (mostly mapped to open which runs the gnome/kde default app)
 
-alias -s Dockerfile="docker build - < "
+alias -s yml="vim"
+alias -s yaml="vim"
 
-alias ocr='docker run --rm -v `pwd`:/home/docker jbarlow83/ocrmypdf --skip-text'
-alias -s tex='docker run -i -t --rm -v `pwd`:/data docker-registry.eccenca.com/eccenca-latex:v1.10.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf'
+#alias -s Dockerfile="docker build - < "
+#
+#alias ocr='docker run --rm -v `pwd`:/home/docker jbarlow83/ocrmypdf --skip-text'
+#alias -s tex='docker run -i -t --rm -v `pwd`:/data docker-registry.eccenca.com/eccenca-latex:v1.10.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf'
+#
+#alias -s epub=" open"
+#alias -s pdf=" open"
+#alias -s PDF=" open"
+#alias -s xoj="xournal"
+#
+#alias -s md=" open"
+#alias -s markdown="open"
+#alias -s htm="$BROWSER"
+#alias -s html="$BROWSER"
+#alias -s jar="java -jar"
+#alias -s war="java -jar"
+#alias -s deb="sudo dpkg -i"
+#alias -s gpg="gpg"
+#
+#alias -s iso="vlc"
+#alias -s avi=" open"
+#alias -s AVI=" open"
+#alias -s mov=" open"
+#alias -s mpg=" open"
+#alias -s m4v=" open"
+#alias -s mp4=" open"
+#alias -s rmvb=" open"
+#alias -s MP4=" open"
+#alias -s ogg=" open"
+#alias -s ogv=" open"
+#alias -s flv=" open"
+#alias -s mkv=" open"
+#alias -s wav=" open"
+#alias -s mp3=" open"
+#alias -s webm=" open"
+#
+#alias -s tif=" open"
+#alias -s tiff= "open"
+#alias -s png=" open"
+#alias -s jpg=" open"
+#alias -s jpeg= "open"
+#alias -s JPG=" open"
+#alias -s gif=" open"
+#alias -s svg=" open"
+#alias -s psd=" open"
+#
+#alias -s com=" open"
+#alias -s de=" open"
+#alias -s org= "open"
+#
+#alias -s xml="xmllint --format"
+#alias -s json="jsonlint"
+#alias -s rdf="rapper --count"
+#alias -s owl="rapper --count"
+#alias -s ttl="rapper -i turtle --count"
+#alias -s tt="rapper -i turtle --count"
+#alias -s n3="rapper -i turtle --count"
+#alias -s nq="rapper -i nquads --count"
+#alias -s nt="rapper -i ntriples --count"
+#alias -s ntriples="rapper -i ntriples --count"
+#alias -s ntriple="rapper -i ntriples --count"
+#alias -s trig="rapper -i trig --count"
+#
+#alias -s ods=" open"
+#alias -s xls=" open"
+#alias -s xlsx= "open"
+#alias -s csv="vd"
+#
+#alias -s pot=" open"
+#alias -s odt=" open"
+#alias -s doc=" open"
+#alias -s docx=" open"
+#alias -s rtf=" open"
+#alias -s dot="dot -Tpng -O"
+#
+#alias -s ppt=" open"
+#alias -s pptx= "open"
+#alias -s odp=" open"
+#
+#alias -s plist="plutil"
+#alias -s log=" open"
+#
+#alias -s sla=" open"
+#
+#alias -s exe=" open"
+#
+#alias -s tjp="tj3"
+#alias -s asc="gpg"
+#alias -s pem="openssl x509 -noout -text -in "
 
-alias -s epub=" open"
-alias -s pdf=" open"
-alias -s PDF=" open"
-alias -s xoj="xournal"
 
-alias -s md=" open"
-alias -s markdown="open"
-alias -s htm="$BROWSER"
-alias -s html="$BROWSER"
-alias -s jar="java -jar"
-alias -s war="java -jar"
-alias -s deb="sudo dpkg -i"
-alias -s gpg="gpg"
+##### software aliases
+alias d="docker"
+alias dc="docker-compose"
 
-alias -s iso="vlc"
-alias -s avi=" open"
-alias -s AVI=" open"
-alias -s mov=" open"
-alias -s mpg=" open"
-alias -s m4v=" open"
-alias -s mp4=" open"
-alias -s rmvb=" open"
-alias -s MP4=" open"
-alias -s ogg=" open"
-alias -s ogv=" open"
-alias -s flv=" open"
-alias -s mkv=" open"
-alias -s wav=" open"
-alias -s mp3=" open"
-alias -s webm=" open"
+alias t="tmux"
 
-alias -s tif=" open"
-alias -s tiff= "open"
-alias -s png=" open"
-alias -s jpg=" open"
-alias -s jpeg= "open"
-alias -s JPG=" open"
-alias -s gif=" open"
-alias -s svg=" open"
-alias -s psd=" open"
+alias gradle="gradle --console=verbose"
+alias gw="./gradlew"
+alias ./gradlew="./gradlew --console=verbose"
 
-alias -s com=" open"
-alias -s de=" open"
-alias -s org= "open"
-
-alias -s xml="xmllint --format"
-alias -s json="jsonlint"
-alias -s rdf="rapper --count"
-alias -s owl="rapper --count"
-alias -s ttl="rapper -i turtle --count"
-alias -s tt="rapper -i turtle --count"
-alias -s n3="rapper -i turtle --count"
-alias -s nq="rapper -i nquads --count"
-alias -s nt="rapper -i ntriples --count"
-alias -s ntriples="rapper -i ntriples --count"
-alias -s ntriple="rapper -i ntriples --count"
-alias -s trig="rapper -i trig --count"
-
-alias -s ods=" open"
-alias -s xls=" open"
-alias -s xlsx= "open"
-alias -s csv="vd"
-
-alias -s pot=" open"
-alias -s odt=" open"
-alias -s doc=" open"
-alias -s docx=" open"
-alias -s rtf=" open"
-alias -s dot="dot -Tpng -O"
-
-alias -s ppt=" open"
-alias -s pptx= "open"
-alias -s odp=" open"
-
-alias -s plist="plutil"
-alias -s log=" open"
-
-alias -s sla=" open"
-
-alias -s exe=" open"
-
-alias -s tjp="tj3"
-alias -s asc="gpg"
-alias -s pem="openssl x509 -noout -text -in "
-
+alias kubectl="minikube kubectl --"

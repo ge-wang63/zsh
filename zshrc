@@ -1,31 +1,32 @@
-# take tike to measure boot time
-bootTimeStart=$(gdate +%s%N 2>/dev/null || date +%s000000000)
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # first include of the environment
 source $HOME/.config/zsh/environment.zsh
 
 # Set name of the theme to load
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="robbyrussell"
 # oh-my-zsh plugin
 plugins=(
   git
   z
+  extract
   zsh-syntax-highlighting
-  vi-mode
-  zsh-autocomplete
 )
 
 typeset -ga sources
 sources+="$ZSH/oh-my-zsh.sh"
-sources+="$ZSH_CONFIG/environment.zsh"
+sources+="$ZSH_CONFIG/aliases.zsh"
+sources+="$ZSH_CONFIG/private.zsh"
 #sources+="$ZSH_CONFIG/options.zsh"
 #sources+="$ZSH_CONFIG/prompt.zsh"
 #sources+="$ZSH_CONFIG/functions.zsh"
-sources+="$ZSH_CONFIG/aliases.zsh"
-
-# Private aliases and adoptions
-sources+="$ZSH_CONFIG/private.zsh"
 
 # completion config needs to be after system and private config
 #sources+="$ZSH_CONFIG/completion.zsh"
@@ -34,20 +35,23 @@ sources+="$ZSH_CONFIG/private.zsh"
 sources+="$ZSH_CONFIG/fzf.zsh"
 
 # Check for a system specific file
-systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
-sources+="$ZSH_CONFIG/$systemFile.zsh"
+#systemFile=$(uname -s | tr "[:upper:]" "[:lower:]")
+#sources+="$ZSH_CONFIG/$systemFile.zsh"
 
 # Private aliases and adoptions added at the very end (e.g. to start byuobu)
 #sources+="$ZSH_CONFIG/private.final.zsh"
 
 # try to include all sources
-foreach file (`echo $sources`)
-    if [[ -a $file ]]; then
+foreach file ($sources)
+    if [[ -e $file ]]; then
         source $file
     fi
 end
 
+if [[ -e $HOME/.iterm2_shell_integration.zsh ]]; then
+    source $HOME/.iterm2_shell_integration.zsh
+fi
 
-bootTimeEnd=$(gdate +%s%N 2>/dev/null || date +%s000000000)
-bootTimeDuration=$((($bootTimeEnd - $bootTimeStart)/1000000))
-echo "$bootTimeDuration ms overall boot duration"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
