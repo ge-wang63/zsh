@@ -1,7 +1,0 @@
-# KEY
-#
-# LLM
-#
-# 阿里云百炼 API KEY
-export DASHSCOPE_API_KEY='sk-dbe1901dca3249169ab9c194134052c7'
-export QWEN_API_KEY='sk-dbe1901dca3249169ab9c194134052c7'
