@@ -11,7 +11,6 @@ source $HOME/.config/zsh/environment.zsh
 # Set name of the theme to load
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="robbyrussell"
 # oh-my-zsh plugin
 plugins=(
   git
@@ -24,9 +23,8 @@ typeset -ga sources
 sources+="$ZSH/oh-my-zsh.sh"
 sources+="$ZSH_CONFIG/aliases.zsh"
 sources+="$ZSH_CONFIG/private.zsh"
-#sources+="$ZSH_CONFIG/options.zsh"
-#sources+="$ZSH_CONFIG/prompt.zsh"
-#sources+="$ZSH_CONFIG/functions.zsh"
+sources+="$ZSH_CONFIG/functions.zsh"
+sources+="$ZSH_CONFIG/options.zsh"
 
 # completion config needs to be after system and private config
 #sources+="$ZSH_CONFIG/completion.zsh"
@@ -35,11 +33,11 @@ sources+="$ZSH_CONFIG/private.zsh"
 sources+="$ZSH_CONFIG/fzf.zsh"
 
 # Check for a system specific file
-#systemFile=$(uname -s | tr "[:upper:]" "[:lower:]")
-#sources+="$ZSH_CONFIG/$systemFile.zsh"
+systemFile=$(uname -s | tr "[:upper:]" "[:lower:]")
+sources+="$ZSH_CONFIG/$systemFile.zsh"
 
 # Private aliases and adoptions added at the very end (e.g. to start byuobu)
-#sources+="$ZSH_CONFIG/private.final.zsh"
+sources+="$ZSH_CONFIG/private.final.zsh"
 
 # try to include all sources
 foreach file ($sources)

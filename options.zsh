@@ -10,20 +10,14 @@ bindkey "^[[H" .backward-word
 # fn-right
 bindkey "^[[F" .forward-word
 
-# arrow up/down searches in history if line is already started
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
-# History Settings (big history for use with many open shells and no dups)
+# History Settings
 # Different History files for root and standard user
 if (( ! EUID )); then
     HISTFILE=$ZSH_CACHE/history_root
 else
     HISTFILE=$ZSH_CACHE/history
 fi
-SAVEHIST=10000
-HISTSIZE=12000
-setopt share_history append_history extended_history hist_no_store hist_ignore_all_dups hist_ignore_space
+setopt append_history hist_no_store hist_ignore_all_dups
 
 # 2x control is completion from history!!!
 zle -C hist-complete complete-word _generic
@@ -45,14 +39,6 @@ setopt NO_BEEP
 # Remove  any right prompt from display when accepting a command line. This may be useful with terminals with other cut/paste methods.
 setopt TRANSIENT_RPROMPT
 
-# If unset, the cursor is set to the end of the word if completion is started. Otherwise it stays there and completion is done from both ends.
-setopt COMPLETE_IN_WORD
-
-# Make cd push the old directory onto the directory stack.
-setopt AUTO_PUSHD
-
-# Don’t push multiple copies of the same directory onto the directory stack.
-setopt PUSHD_IGNORE_DUPS
 
 # DON NOT Allow ‘>’ redirection to truncate existing files, and ‘>>’ to create files. Otherwise ‘>!’ or ‘>|’ must be used to truncate  a file, and ‘>>!’ or ‘>>|’ to create a file.
 setopt no_clobber

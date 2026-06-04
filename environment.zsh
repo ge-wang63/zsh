@@ -32,7 +32,6 @@ export NOTE_DIR="$HOME/Article/Note/collection/docs"
 # >>>>> Homebrew start >>>>>
 export HOMEBREW_HOME="/opt/homebrew"
 export PATH="$HOMEBREW_HOME/bin:$PATH"
-export HOMEBREW_NO_AUTO_UPDATE="1"
 # >>>>> Homebrew end >>>>>
 
 
