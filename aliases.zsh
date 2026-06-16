@@ -8,7 +8,7 @@ alias zedit=" $EDITOR $ZSH_CONFIG/zshrc; source $ZSH_CONFIG/zshrc"
 alias aedit=" $EDITOR $ZSH_CONFIG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
 alias eedit=" $EDITOR $ZSH_CONFIG/environment.zsh; source $ZSH_CONFIG/environment.zsh"
 alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
-alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
+alias pedit=" $EDITOR $ZSH_CONFIG/private.final.zsh; source $ZSH_CONFIG/private.final.zsh"
 alias viedit=" $EDITOR $HOME/.vim/vimrc"
 
 # N-Triples aliases from http://blog.datagraph.org/2010/03/grepping-ntriples

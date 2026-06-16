@@ -2,37 +2,33 @@
 # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+
+
 export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
 export ZSH="$HOME/.oh-my-zsh"
 
-# executable search path
-export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/sbin:$PATH
 
+
+# executable search path
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export HOMEBREW_HOME="/opt/homebrew"
+export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
 
 
 # >>>>> Custom env variables start >>>>>
 
-# >>> 自定义脚本 start >>>
-export OWN_SCRIPT_BIN="~/.bin"
-PATH="$OWN_SCRIPT_BIN:$PATH"
-# >>> 自定义脚本 end >>>
-
 export SOFT_DIR="/usr/local/software"
 export TMP_DIR="$HOME/Tmp"
-export NOTE_DIR="$HOME/Article/Note/collection/docs"
 
 # <<<<< Custom env variables end <<<<<
-
-
-
-# >>>>> Homebrew start >>>>>
-export HOMEBREW_HOME="/opt/homebrew"
-export PATH="$HOMEBREW_HOME/bin:$PATH"
-# >>>>> Homebrew end >>>>>
 
 
 
@@ -64,31 +60,14 @@ export MANPATH="$(brew --prefix gnu-which)/libexec/gnuman:$MANPATH"
 
 
 
-# >>>>> Build Tools start >>>>>
-
-# >>> gradle start >>>
-export GRADLE_HOME=/opt/homebrew/opt/gradle
-export GRADLE_USER_HOME=$HOME/.gradle
-# <<< gradle end <<<
-
-# >>> maven start >>>
-export MAVEN_HOME=/opt/homebrew/opt/maven/libexec
-export M2_HOME=/opt/homebrew/opt/maven/libexec
-export MAVEN_OPTS="-Xss64m -Xmx1g -XX:ReservedCodeCacheSize=512m"
-# <<< maven end <<<
-
-# >>> nvm start >>>
-  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-# <<< nvm end <<<
-
-# <<<<< Build Tools end <<<<<
-
-
-
 # >>>>> Software mana start >>>>>
 
+# >>> homebrew start <<<
+export HOMEBREW_AUTO_UPDATE_SECS=604800
+#export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+# <<< homebrew end <<<
 
 # >>> sdkman start <<<
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -97,6 +76,33 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # <<< sdkman end <<<
 
 # <<<<< Software mana end <<<<<
+
+
+
+# >>>>> PL & BuildTool start >>>>>
+
+# >>> jvm start >>>
+export GRADLE_HOME=/opt/homebrew/opt/gradle
+export GRADLE_USER_HOME=$HOME/.gradle
+
+export MAVEN_HOME=/opt/homebrew/opt/maven/libexec
+export M2_HOME=/opt/homebrew/opt/maven/libexec
+export MAVEN_OPTS="-Xss64m -Xmx1g -XX:ReservedCodeCacheSize=512m"
+# <<< jvm end <<<
+
+# >>>>> python start >>>>>
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+export UV_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+export UV_PYTHON_INSTALL_MIRROR="https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone/"
+# >>>>> python end >>>>>
+
+# >>> node start >>>
+export FNM_NODE_DIST_MIRROR="https://mirrors.aliyun.com/nodejs-release/"
+eval "$(fnm env --use-on-cd --shell zsh)"
+# <<< node end <<<
+
+# <<<<< PL & BuildTool  end <<<<<
 
 
 
@@ -117,7 +123,7 @@ export PATH="$PATH:$ZOOKEEPER_HOME/bin"
 
 # >>> kafka start >>>
 export KAFKA_HOME=/usr/local/software/kafka_2.13-4.2.0
-export KAFKA_DATA_HOME=/Users/wangge/Tmp/Component/kafka
+export KAFKA_DATA_HOME=$HOME/Tmp/Component/kafka
 export PATH="$PATH:$KAFKA_HOME/bin"
 # >>> kafka end >>>
 
@@ -147,30 +153,21 @@ export AIRFLOW_HOME=/usr/local/software/airflow
 # <<< airflow end <<
 
 # >>> kerberos start >>>
-export PATH="/opt/homebrew/opt/krb5/bin:$PATH"
-export PATH="/opt/homebrew/opt/krb5/sbin:$PATH"
-export KRB5_CONFIG=/etc/krb5.conf
-export KRB5_KDC_PROFILE=/var/krb5kdc/kdc.conf
+#export PATH="/opt/homebrew/opt/krb5/bin:$PATH"
+#export PATH="/opt/homebrew/opt/krb5/sbin:$PATH"
+#export KRB5_CONFIG=/etc/krb5.conf
+#export KRB5_KDC_PROFILE=/var/krb5kdc/kdc.conf
 # <<< kerberos end <<
 
 # >>>>> BigData end >>>>>
 
 
 
-# >>>>> Python start >>>>>
+# >>>>> AI start >>>>>
 
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
+export HERMES_TUI=1
 
-# >>>>> Python end >>>>>
-
-
-
-# >>>>> Rust start >>>>>
-
-export PATH=$HOME/.cargo/bin:$PATH
-
-# >>>>> Rust end >>>>>
+# <<<<< AI end <<<<<
 
 
 
