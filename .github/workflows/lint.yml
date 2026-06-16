@@ -1,0 +1,29 @@
+name: Lint
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  zsh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
+
+      - name: Lint with ShellCheck
+        run: |
+          find . -name '*.zsh' -not -path './.worktrees/*' -print0 |
+            xargs -0 shellcheck --severity=warning
+
+      - name: Syntax check (zsh -n)
+        run: |
+          find . -name '*.zsh' -not -path './.worktrees/*' -print0 |
+            while IFS= read -r -d '' f; do
+              zsh -n "$f" || { echo "FAIL: $f"; exit 1; }
+              echo "OK: $f"
+            done
