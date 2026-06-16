@@ -69,3 +69,7 @@ make install
 ├── Makefile            # 安装脚本
 └── README.md
 ```
+
+## 许可
+
+GPL-3.0 — 基于 [seebi/zshrc](https://github.com/seebi/zshrc)（作者 Sebastian Tramp）修改
