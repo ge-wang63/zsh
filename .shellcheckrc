@@ -1,0 +1,6 @@
+# ShellCheck config for zsh source files
+# These files are sourced by zsh, never executed directly (no shebang needed).
+# ShellCheck cannot parse zsh-specific syntax, so disable false positives.
+
+external-sources=false
+disable=SC2148,SC2296,SC1036,SC1056,SC1072,SC1073,SC1083,SC1140,SC1090,SC1091,SC2139,SC2142,SC1050,SC2155,SC2154,SC2128
