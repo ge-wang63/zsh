@@ -6,4 +6,51 @@ zshrc.bak
 private*
 .worktrees/
 .hermes/
-.claude/
+SOUL.md
+
+# =========================
+# Claude
+# =========================
+
+.claude/*
+
+!.claude/CLAUDE.md
+!.claude/settings.json
+!.claude/.mcp.json
+
+!.claude/rules/**
+!.claude/skills/**
+!.claude/commands/**
+!.claude/agents/**
+!.claude/workflows/**
+!.claude/output-styles/**
+
+CLAUDE.local.md
+
+# =========================
+# Codex
+# =========================
+
+.codex/*
+
+!.codex/config.toml
+!.codex/instructions.md
+!.codex/mcp.json
+
+!.codex/prompts/**
+!.codex/agents/**
+!.codex/rules/**
+!.codex/skills/**
+
+.codex/cache/
+.codex/logs/
+.codex/sessions/
+.codex/memories/
+
+# =========================
+# Local
+# =========================
+
+*.local.*
+.env
+.env.*
