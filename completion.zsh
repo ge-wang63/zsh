@@ -1,5 +1,6 @@
-# @author     Sebastian Tramp <mail@sebastian.tramp.name>
-# @license    http://opensource.org/licenses/gpl-license.php
+# @author  Sebastian Tramp <mail@sebastian.tramp.name>
+# @license GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>
+
 #
 # tab completion configuration
 #
@@ -62,7 +63,7 @@ zstyle ':completion:*' verbose yes
 bindkey -M menuselect '^@' accept-and-infer-next-history
 
 # case-insensitive -> partial-word (cs) -> substring completion:
-zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'  
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # caching of completion stuff
 zstyle ':completion:*' use-cache on
