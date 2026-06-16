@@ -20,14 +20,13 @@ plugins=(
 )
 
 typeset -ga sources
+sources+="$ZSH_CONFIG/completion.zsh"
 sources+="$ZSH/oh-my-zsh.sh"
 sources+="$ZSH_CONFIG/aliases.zsh"
 sources+="$ZSH_CONFIG/private.zsh"
 sources+="$ZSH_CONFIG/functions.zsh"
 sources+="$ZSH_CONFIG/options.zsh"
 
-# completion config needs to be after system and private config
-#sources+="$ZSH_CONFIG/completion.zsh"
 
 # fzf integration and config
 sources+="$ZSH_CONFIG/fzf.zsh"

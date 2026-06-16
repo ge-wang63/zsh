@@ -9,7 +9,8 @@
 functionsd="$ZSH_CONFIG/functions.d"
 if [[ -d "$functionsd" ]] {
     fpath=( $functionsd $fpath )
-    autoload -U $functionsd/*(:t)
+    # Oh My Zsh 会进行 autoload，此处注释
+    # autoload -U $functionsd/*(:t)
 }
 
 # load completions system
@@ -86,5 +87,5 @@ zstyle ':completion::*:vi:*:*' file-patterns 'Makefile|*(rc|log)|*.(php|tex|bib|
 
 zstyle :compinstall filename '~/.zshrc'
 
-autoload -Uz compinit && compinit
-
+# Oh My Zsh 会进行 autoload，避免重复 compinit 此处注释掉
+# autoload -Uz compinit && compinit
