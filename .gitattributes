@@ -1,0 +1,3 @@
+# Agent 专属文件 — 合并时始终丢弃
+AGENTS.md      merge=discard
+CODEX.md       merge=discard
