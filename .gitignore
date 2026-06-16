@@ -5,3 +5,5 @@ history*
 zshrc.bak
 private*
 .worktrees/
+.hermes/
+.claude/
