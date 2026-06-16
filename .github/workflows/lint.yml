@@ -12,6 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check no private*.zsh files tracked
+        run: |
+          if git ls-files | grep -qE 'private[^/]*\.zsh$'; then
+            echo "ERROR: private*.zsh files must not be committed:"
+            git ls-files | grep -E 'private[^/]*\.zsh$'
+            exit 1
+          fi
+          echo "OK: no private*.zsh tracked"
+
       - name: Install ShellCheck
         run: brew install shellcheck
 
