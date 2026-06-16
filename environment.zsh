@@ -94,12 +94,20 @@ export M2_HOME=/opt/homebrew/opt/maven/libexec
 export MAVEN_OPTS="-Xss64m -Xmx1g -XX:ReservedCodeCacheSize=512m"
 # <<< jvm end <<<
 
-# >>>>> python start >>>>>
+# >>> rust start >>>
+export RUSTUP_HOME="$HOME/.rustup"
+export CARGO_HOME="$HOME/.cargo"
+export RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
+export RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
+export PATH="$HOME/.cargo/bin:$PATH"
+# <<< rust end <<<
+
+# >>> python start >>>
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 export UV_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 export UV_PYTHON_INSTALL_MIRROR="https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone/"
-# >>>>> python end >>>>>
+# >>> python end >>>
 
 # >>> node start >>>
 export FNM_NODE_DIST_MIRROR="https://mirrors.aliyun.com/nodejs-release/"
