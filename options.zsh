@@ -1,3 +1,6 @@
+# @author  Sebastian Tramp <mail@sebastian.tramp.name>
+# @license GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>
+
 # keybindings Strg+v is your friend :-)
 bindkey "^[[1;5D" .backward-word
 bindkey "^[[1;5C" .forward-word

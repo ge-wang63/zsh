@@ -1,3 +1,6 @@
+# @author  Sebastian Tramp <mail@sebastian.tramp.name>
+# @license GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.

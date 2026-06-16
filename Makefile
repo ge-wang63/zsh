@@ -1,3 +1,6 @@
+# @author  Sebastian Tramp <mail@sebastian.tramp.name>
+# @license GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>
+
 XDG_CONFIG_HOME=$(HOME)/.config
 XDG_CACHE_HOME=$(HOME)/.cache
 ZSH_CONFIG=$(XDG_CONFIG_HOME)/zsh
