@@ -179,6 +179,12 @@ export AIRFLOW_HOME=/usr/local/software/airflow
 
 export HERMES_TUI=1
 
+# >>> codex start >>>
+export CODEX_HOME="$HOME/.codex"
+export CODEX_SQLITE_HOME="$CODEX_HOME"
+export RUST_LOG="debug codex -c log_dir=./.codex-log"
+# <<< codex end <<<
+
 # <<<<< AI end <<<<<
 
 
