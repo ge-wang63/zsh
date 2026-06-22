@@ -29,6 +29,7 @@
 source <(fzf --zsh)
 
 if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --hidden --files'
-  export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --color=light --preview "bat --color=always {}" --preview-window "~3"'
+  export FZF_DEFAULT_COMMAND='rg --hidden --files --glob "!.git"'
+  #export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --color=light --preview "bat --color=always {}" --preview-window "~3"'
+  export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --preview "bat --color=always {}" --preview-window "~10"'
 fi
