@@ -112,6 +112,13 @@ export UV_PYTHON_INSTALL_MIRROR="https://mirror.nju.edu.cn/github-release/astral
 # >>> node start >>>
 export FNM_NODE_DIST_MIRROR="https://mirrors.aliyun.com/nodejs-release/"
 eval "$(fnm env --use-on-cd --shell zsh)"
+# >>> pnpm start >>>
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# <<< pnpm end <<<
 # <<< node end <<<
 
 # <<<<< PL & BuildTool  end <<<<<
@@ -177,6 +184,7 @@ export AIRFLOW_HOME=/usr/local/software/airflow
 
 # >>>>> AI start >>>>>
 
+export HERMES_HOME="$HOME/.hermes"
 export HERMES_TUI=1
 
 # >>> codex start >>>

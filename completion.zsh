@@ -14,6 +14,7 @@ if [[ -d "$functionsd" ]] {
     # Oh My Zsh 会进行 autoload，此处注释
     # autoload -U $functionsd/*(:t)
 }
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 # load completions system
 zmodload -i zsh/complist

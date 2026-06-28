@@ -21,7 +21,9 @@ if (( ! EUID )); then
 else
     HISTFILE=$ZSH_CACHE/history
 fi
-setopt append_history hist_no_store hist_ignore_all_dups
+HISTSIZE=200
+SAVEHIST=100
+setopt share_history hist_no_store hist_ignore_all_dups hist_save_no_dups hist_find_no_dups hist_ignore_space correct auto_pushd
 
 # 2x control is completion from history!!!
 zle -C hist-complete complete-word _generic
@@ -46,5 +48,4 @@ setopt TRANSIENT_RPROMPT
 
 # DON NOT Allow ‘>’ redirection to truncate existing files, and ‘>>’ to create files. Otherwise ‘>!’ or ‘>|’ must be used to truncate  a file, and ‘>>!’ or ‘>>|’ to create a file.
 setopt no_clobber
-
 
