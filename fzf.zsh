@@ -15,8 +15,8 @@ if type rg &> /dev/null; then
   #export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --preview "bat --color=always {}" --preview-window "~10"'
 fi
 
-export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --exclude Library --exclude node_modules --exclude .cache'
-export FZF_CTRL_T_COMMAND='fd --hidden --exclude .git --exclude Library --exclude node_modules --exclude .cache'
-export FZF_COMPLETION_PATH_OPTS='--walker-skip=.cache,Library,node_modules,.git'
-export FZF_ALT_C_COMMAND='fd --hidden --type d --exclude .git --exclude Library --exclude node_modules --exclude .cache'
+export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --exclude node_modules --exclude .cache --exclude Library --exclude Pictures'
+export FZF_CTRL_T_COMMAND='fd --hidden --exclude .git --exclude node_modules --exclude .cache --exclude Library --exclude Pictures'
+export FZF_COMPLETION_PATH_OPTS='--walker-skip=.git,node_modules,.cache,Library,Pictures'
+export FZF_ALT_C_COMMAND='fd --hidden --type d --exclude .git --exclude node_modules --exclude .cache --exclude Library --exclude Pictures'
 export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --preview "bat --color=always {}" --preview-window "~10"'

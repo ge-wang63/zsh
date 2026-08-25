@@ -30,7 +30,15 @@ export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
 # >>>>> Custom env variables start >>>>>
 
 export SOFT_DIR="/usr/local/software"
-export TMP_DIR="$HOME/Tmp"
+export PRIV_TMPDIR="$HOME/Tmp"
+
+# >>>>> 网络代理 start >>>>>（FlClash fake-ip 7890，CLI 工具需显式代理）
+export HTTP_PROXY="http://127.0.0.1:7890"
+export HTTPS_PROXY="http://127.0.0.1:7890"
+export ALL_PROXY="http://127.0.0.1:7890"
+export NO_PROXY="localhost,127.0.0.1,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,*.local,*.deepseek.com,*.aliyun.com,*.tsinghua.edu.cn,*.ustc.edu.cn"
+export http_proxy="$HTTP_PROXY" https_proxy="$HTTPS_PROXY" all_proxy="$ALL_PROXY" no_proxy="$NO_PROXY"
+# <<<<< 网络代理 end <<<<<
 
 # <<<<< Custom env variables end <<<<<
 
@@ -86,7 +94,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # >>>>> PL & BuildTool start >>>>>
 
 # >>> jvm start >>>
-export GRADLE_HOME=/opt/homebrew/opt/gradle
+export GRADLE_HOME=$HOME/.sdkman/candidates/gradle/current
 export GRADLE_USER_HOME=$HOME/.gradle
 
 export MAVEN_HOME=/opt/homebrew/opt/maven/libexec
@@ -140,12 +148,6 @@ export ZOOKEEPER_HOME=/usr/local/software/zookeeper-3.7.1
 export PATH="$PATH:$ZOOKEEPER_HOME/bin"
 # >>> zookeeper end >>>
 
-# >>> kafka start >>>
-export KAFKA_HOME=/usr/local/software/kafka_2.13-4.2.0
-export KAFKA_DATA_HOME=$HOME/Tmp/Component/kafka
-export PATH="$PATH:$KAFKA_HOME/bin"
-# >>> kafka end >>>
-
 # >>> elasticsearch start >>>
 #export ES_HOME=/usr/local/software/elasticsearch-7.10.2
 #export PATH="$PATH:$ES_HOME/bin"
@@ -186,6 +188,7 @@ export AIRFLOW_HOME=/usr/local/software/airflow
 
 export HERMES_HOME="$HOME/.hermes"
 export HERMES_TUI=1
+eval "$(hermes completion zsh)"
 
 # >>> codex start >>>
 export CODEX_HOME="$HOME/.codex"
