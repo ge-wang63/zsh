@@ -22,7 +22,7 @@ make install
 | `aliases.zsh` | 别名（git/docker/kubectl/fzf/全局后缀别名） | ✅ |
 | `functions.zsh` | 自定义 zsh 函数 | ✅ |
 | `options.zsh` | Shell 选项、按键绑定、历史记录 | ✅ |
-| `fzf.zsh` | fzf 模糊搜索集成（搭配 ripgrep + bat） | ✅ |
+| `fzf.zsh` | fzf 模糊搜索集成（fd + bat） | ✅ |
 | `darwin.zsh` | macOS 专属配置（`ls` 颜色） | ✅ |
 | `private.final.zsh` | 私有密钥和令牌（gitignore 排除，不提交） | ✅ |
 | `completion.zsh` | Tab 补全 zstyle 配置（compinit 由 oh-my-zsh 接管） | ✅ |
@@ -34,8 +34,11 @@ make install
 |---|---|
 | [oh-my-zsh](https://ohmyz.sh/) | Zsh 框架 |
 | [powerlevel10k](https://github.com/romkatv/powerlevel10k) | Prompt 主题 |
+| [fzf](https://github.com/junegunn/fzf) | 模糊搜索（Ctrl-T/Ctrl-R/Ctrl-G） |
+| [fd](https://github.com/sharkdp/fd) | fzf 默认搜索命令 |
+| [bat](https://github.com/sharkdp/bat) | fzf 预览高亮 |
 
-> 其他如 fzf、uv、fnm 等为可选增强，未安装时对应功能静默跳过。
+> 其他如 uv、fnm 等为可选增强，未安装时对应功能静默跳过。
 
 ## 插件
 
