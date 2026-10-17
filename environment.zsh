@@ -35,6 +35,29 @@ export WIN_C="/mnt/c"
 export WIN_D="/mnt/d"
 ## <<<<< WINDOWS 目录挂载 <<<<< 
 
+# >>>>> network proxy start >>>>>
+# FlClash 7890（Ubuntu）；端口存活才导出，避免 FlClash 关闭后的死代理
+# 本文件在 functions.zsh 之前被 source，故端口探测函数定义在此，供两处共用。
+# Linux netcat 用 -w（连接超时）；macOS 的 -G 在 Linux 上不适用。无 nc 时回退 bash /dev/tcp。
+# 启动 shell 时若 FlClash 未运行则不导出；之后启动 FlClash 可执行 `proxyon` 即时开启。
+_proxy_port_open() {
+  local host=${1:-127.0.0.1} port=${2:-7890}
+  if command -v nc >/dev/null 2>&1; then
+    nc -z -w 1 "$host" "$port" 2>/dev/null
+  else
+    timeout 1 bash -c "exec 3<>/dev/tcp/$host/$port" 2>/dev/null
+  fi
+}
+
+if _proxy_port_open 127.0.0.1 7890; then
+  export HTTP_PROXY="http://127.0.0.1:7890"
+  export HTTPS_PROXY="http://127.0.0.1:7890"
+  export ALL_PROXY="http://127.0.0.1:7890"
+  export NO_PROXY="localhost,127.0.0.1,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,*.local,*.deepseek.com,*.aliyun.com,*.tsinghua.edu.cn,*.ustc.edu.cn"
+  export http_proxy="$HTTP_PROXY" https_proxy="$HTTPS_PROXY" all_proxy="$ALL_PROXY" no_proxy="$NO_PROXY"
+fi
+# <<<<< network proxy end <<<<<
+
 # <<< Custom env variables end <<<
 
 
