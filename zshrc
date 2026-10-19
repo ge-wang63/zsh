@@ -30,7 +30,6 @@ sources+="$ZSH_CONFIG/aliases.zsh"
 sources+="$ZSH_CONFIG/functions.zsh"
 sources+="$ZSH_CONFIG/options.zsh"
 
-
 # fzf integration and config
 sources+="$ZSH_CONFIG/fzf.zsh"
 

@@ -29,12 +29,6 @@ export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
 
 
 # >>> Custom env variables start >>>
-
-## >>>>> WINDOWS 目录挂载 >>>>> 
-export WIN_C="/mnt/c"
-export WIN_D="/mnt/d"
-## <<<<< WINDOWS 目录挂载 <<<<< 
-
 # >>>>> network proxy start >>>>>
 # FlClash 7890（Ubuntu）；端口存活才导出，避免 FlClash 关闭后的死代理
 # 本文件在 functions.zsh 之前被 source，故端口探测函数定义在此，供两处共用。
@@ -57,7 +51,6 @@ if _proxy_port_open 127.0.0.1 7890; then
   export http_proxy="$HTTP_PROXY" https_proxy="$HTTPS_PROXY" all_proxy="$ALL_PROXY" no_proxy="$NO_PROXY"
 fi
 # <<<<< network proxy end <<<<<
-
 # <<< Custom env variables end <<<
 
 
@@ -109,66 +102,15 @@ export UV_PYTHON_INSTALL_MIRROR="https://mirror.nju.edu.cn/github-release/astral
 export FNM_NODE_DIST_MIRROR="https://mirrors.aliyun.com/nodejs-release/"
 eval "$(fnm env --use-on-cd --shell zsh)"
 ## >>> pnpm start >>>
-#export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-#case ":$PATH:" in
-#  *":$PNPM_HOME/bin:"*) ;;
-#  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-#esac
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
 # <<< pnpm end <<<
 # <<<<< node end <<<<<
 
 # <<< PL & BuildTool  end <<<
-
-
-
-# >>>>> BigData start >>>>>
-
-# >>> hadoop start >>>
-#export HADOOP_HOME=/usr/local/software/hadoop-3.4.1
-#export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop"
-#export YARN_CONF_DIR="$HADOOP_HOME/etc/hadoop"
-#export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin"
-#export HADOOP_CLASSPATH=`hadoop classpath`
-## >>> hadoop end >>>
-#
-## >>> zookeeper start >>>
-#export ZOOKEEPER_HOME=/usr/local/software/zookeeper-3.7.1
-#export PATH="$PATH:$ZOOKEEPER_HOME/bin"
-## >>> zookeeper end >>>
-#
-## >>> elasticsearch start >>>
-##export ES_HOME=/usr/local/software/elasticsearch-7.10.2
-##export PATH="$PATH:$ES_HOME/bin"
-## >>> elasticsearch end >>>
-#
-## >>> spark start >>>
-#export SPARK_HOME=/usr/local/software/spark-3.5.5-bin-hadoop3-scala2.13
-#export PATH="$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin"
-## <<< spark end <<
-#
-## >>> flink start >>>
-#export FLINK_HOME=/usr/local/software/flink-2.0.0
-#export PATH="$PATH:$FLINK_HOME/bin"
-## <<< flink end <<
-#
-## >>> rocketmq start >>>
-#export ROCKETMQ_HOME=/usr/local/software/rocketmq-5.1.4
-#export PATH="$PATH:$ROCKETMQ_HOME/bin"
-#export rmq_store=$HOME/Tmp/System/rocketmq
-## <<< rocketmq end <<<
-#
-## >>> airflow start >>>
-#export AIRFLOW_HOME=/usr/local/software/airflow
-# <<< airflow end <<
-
-# >>> kerberos start >>>
-#export PATH="/opt/homebrew/opt/krb5/bin:$PATH"
-#export PATH="/opt/homebrew/opt/krb5/sbin:$PATH"
-#export KRB5_CONFIG=/etc/krb5.conf
-#export KRB5_KDC_PROFILE=/var/krb5kdc/kdc.conf
-# <<< kerberos end <<
-
-# >>>>> BigData end >>>>>
 
 
 
@@ -191,8 +133,6 @@ export CREWAI_DISABLE_TELEMETRY=true
 
 # >>>>> Others start >>>>>
 
-# >>> mysql >>>
-#export PATH="$PATH:/usr/local/mysql/bin"
-# <<< mysql <<<
+source <(kubectl completion zsh)
 
 # <<<<< Others end <<<<<

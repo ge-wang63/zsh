@@ -5,6 +5,7 @@
 # alias definitions which can be edited/modified with 'aedit'
 
 export EDITOR="vim"
+export BROWSER="google-chrome"
 
 
 alias vi="vim"
@@ -64,13 +65,11 @@ alias -g LA='2>&1 | less'
 alias -g M='| most'
 alias -g C='| wc -l'
 
-alias filepath='readlink -f'
-alias ip_simple="ifconfig en0 | grep 'inet ' | sed 's/^.*inet //g' | sed 's/ netmask.*$//g'"
-
 ##### suffix aliases (mostly mapped to open which runs the gnome/kde default app)
 
 alias -s yml="vim"
 alias -s yaml="vim"
+alias -s zsh=" $EDITOR"
 
 #alias -s Dockerfile="docker build - < "
 #
@@ -82,13 +81,12 @@ alias -s yaml="vim"
 #alias -s PDF=" open"
 #alias -s xoj="xournal"
 #
-#alias -s md=" open"
-#alias -s markdown="open"
-#alias -s htm="$BROWSER"
-#alias -s html="$BROWSER"
-#alias -s jar="java -jar"
-#alias -s war="java -jar"
-#alias -s deb="sudo dpkg -i"
+alias -s md="code"
+alias -s markdown="code"
+alias -s htm="xdg-open >/dev/null 2>&1"
+alias -s html="xdg-open >/dev/null 2>&1"
+alias -s jar="java -jar"
+alias -s deb="sudo dpkg -i"
 #alias -s gpg="gpg"
 #
 #alias -s iso="vlc"
@@ -123,7 +121,7 @@ alias -s yaml="vim"
 #alias -s org= "open"
 #
 #alias -s xml="xmllint --format"
-#alias -s json="jsonlint"
+alias -s json="jsonlint"
 #alias -s rdf="rapper --count"
 #alias -s owl="rapper --count"
 #alias -s ttl="rapper -i turtle --count"
@@ -173,4 +171,4 @@ alias gradle="gradle --console=verbose"
 alias gw="./gradlew"
 alias ./gradlew="./gradlew --console=verbose"
 
-alias kubectl="minikube kubectl --"
+#alias kubectl="minikube kubectl --"
