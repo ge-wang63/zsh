@@ -16,7 +16,7 @@ if type rg &> /dev/null; then
 fi
 
 # 统一排除列表（fd 与 walker 共用，改一处全同步）
-FZF_EXCLUDES=(.git node_modules .cache Library Pictures)
+FZF_EXCLUDES=(.git node_modules .cache Pictures)
 
 export FZF_DEFAULT_COMMAND="fd --hidden ${FZF_EXCLUDES[@]/#/--exclude }"
 # ⚠️ FZF_CTRL_T_COMMAND 必须单独设置，不能只靠 FZF_DEFAULT_COMMAND：

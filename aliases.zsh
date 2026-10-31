@@ -27,13 +27,13 @@ alias rdf-objects="awk '/^\s*[^#]/ { ORS=\"\"; for (i=3;i<=NF-1;i++) print \$i \
 alias rdf-datatypes="awk -F'\x5E' '/\"\^\^</ { print substr(\$3, 2, length(\$3)-4) }' | uniq"
 
 alias grep='grep -n --color=auto'
-alias rg='rg -n --color=auto'
+alias rg='rg -S -n --color=auto'
 
 ##### standard aliases (start with a space to be ignored in history)
 alias ls=' ls --color=auto'
 
 alias rm='rm -i'
-alias p=' ps aux | grep'
+alias p='ps aux | grep'
 alias g='git'
 alias b='brew'
 alias ka="killall"
